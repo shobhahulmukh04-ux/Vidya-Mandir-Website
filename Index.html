@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101a17">
+<meta name="description" content="Discover Vidya Mandir, Dahisar — a place where knowledge, character and creativity grow together.">
+<title>Vidya Mandir | Learn. Grow. Become.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #101a17;
+    --bg-light: #182722;
+    --card: #1b2b25;
+    --gold: #d5b779;
+    --cream: #f5f0e6;
+    --muted: #aab6ac;
+    --border: rgba(245,240,230,.13);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: var(--sans);
+    overflow-x: hidden;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, textarea, select {
+    font: inherit;
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+.container {
+    width: min(1160px, 90%);
+    margin: auto;
+}
+
+.gold {
+    color: var(--gold);
+}
+
+.eyebrow {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+h1, h2, h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: clamp(34px, 5vw, 54px);
+    margin-bottom: 22px;
+}
+
+p {
+    color: var(--muted);
+}
+
+section {
+    padding: 105px 0;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 25px;
+    border: 1px solid var(--gold);
+    background: var(--gold);
+    color: #152019;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--gold);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--cream);
+    border-color: var(--border);
+}
+
+.btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* LOADER */
+
+.loader {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    display: grid;
+    place-items: center;
+    z-index: 9999;
+    transition: opacity .7s, visibility .7s;
+}
+
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-inner {
+    text-align: center;
+}
+
+.loader-symbol {
+    color: var(--gold);
+    font-family: var(--serif);
+    font-size: 46px;
+    animation: breathe 1.3s infinite alternate;
+}
+
+.loader p {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 12px;
+}
+
+@keyframes breathe {
+    from { opacity: .35; transform: scale(.95); }
+    to { opacity: 1; transform: scale(1.05); }
+}
+
+/* NAVIGATION */
+
+nav {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 1000;
+    padding: 20px 0;
+    background: rgba(16,26,23,.88);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid transparent;
+    transition: .3s;
+}
+
+nav.scrolled {
+    border-color: var(--border);
+    padding: 13px 0;
+}
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 43px;
+    height: 43px;
+    border: 1px solid var(--gold);
+    display: grid;
+    place-items: center;
+    color: var(--gold);
+    font-family: var(--serif);
+    font-size: 23px;
+}
+
+.brand-name {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.2;
+}
+
+.brand-name small {
+    display: block;
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    font-size: 11px;
+    color: var(--muted);
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.nav-links .nav-cta {
+    color: var(--gold);
+    border: 1px solid rgba(213,183,121,.5);
+    padding: 10px 16px;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    color: var(--cream);
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 150px 0 90px;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(16,26,23,.98) 0%, rgba(16,26,23,.87) 45%, rgba(16,26,23,.36) 100%),
+        linear-gradient(0deg, var(--bg), transparent 40%),
+        url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=2000&q=85')
+        center/cover;
+    transform: scale(1.04);
+    animation: heroZoom 12s ease-out forwards;
+}
+
+@keyframes heroZoom {
+    to { transform: scale(1); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    animation: slideUp 1s .2s both;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero .eyebrow::before {
+    content: "";
+    width: 35px;
+    height: 1px;
+    background: var(--gold);
+}
+
+.hero h1 {
+    font-size: clamp(52px, 8.5vw, 100px);
+    letter-spacing: -2px;
+    max-width: 850px;
+    margin-bottom: 25px;
+}
+
+.hero h1 em {
+    font-weight: 400;
+    color: var(--gold);
+}
+
+.hero-description {
+    max-width: 490px;
+    font-size: 15px;
+    margin-bottom: 34px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 13px;
+    flex-wrap: wrap;
+}
+
+.hero-bottom {
+    position: absolute;
+    bottom: 35px;
+    left: 5%;
+    right: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.scroll-line {
+    width: 65px;
+    height: 1px;
+    display: inline-block;
+    background: var(--gold);
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* MARQUEE */
+
+.marquee {
+    overflow: hidden;
+    background: var(--gold);
+    color: #17221b;
+    padding: 17px 0;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+}
+
+.marquee-track span {
+    padding: 0 30px;
+    font-family: var(--serif);
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.marquee-track b {
+    color: #68522d;
+    padding-left: 30px;
+}
+
+@keyframes marquee {
+    to { transform: translateX(-50%); }
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 85px;
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+    padding: 0 25px 25px 0;
+}
+
+.about-image img {
+    height: 500px;
+}
+
+.about-image::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 65%;
+    height: 65%;
+    border-right: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    z-index: -1;
+}
+
+.image-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px 25px;
+    background: var(--gold);
+    color: #17221b;
+    font-family: var(--serif);
+    font-size: 20px;
+}
+
+.about-copy p {
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+.signature {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid var(--border);
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--gold);
+}
+
+/* STATS */
+
+.stats {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.stat {
+    text-align: center;
+    padding: 30px 12px;
+    border-right: 1px solid var(--border);
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.stat-number {
+    color: var(--gold);
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 50px);
+    margin-bottom: 5px;
+}
+
+.stat p {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ACADEMICS */
+
+.section-heading {
+    max-width: 650px;
+    margin-bottom: 55px;
+}
+
+.section-heading p {
+    font-size: 14px;
+}
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.program-card {
+    position: relative;
+    padding: 34px 28px;
+    min-height: 270px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    transition: .4s;
+    overflow: hidden;
+}
+
+.program-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(213,183,121,.6);
+    background: #21332b;
+}
+
+.program-number {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+}
+
+.program-card h3 {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.program-card p {
+    font-size: 13px;
+}
+
+.program-arrow {
+    position: absolute;
+    right: 25px;
+    bottom: 22px;
+    color: var(--gold);
+    font-size: 24px;
+}
+
+/* PHILOSOPHY */
+
+.philosophy {
+    background:
+        linear-gradient(rgba(16,26,23,.91), rgba(16,26,23,.94)),
+        url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1800&q=80')
+        center/cover fixed;
+    text-align: center;
+}
+
+.philosophy-inner {
+    max-width: 850px;
+    margin: auto;
+}
+
+.philosophy blockquote {
+    font-family: var(--serif);
+    font-size: clamp(29px, 5vw, 55px);
+    line-height: 1.4;
+    margin: 20px 0 28px;
+}
+
+.philosophy blockquote span {
+    color: var(--gold);
+    font-style: italic;
+}
+
+/* GALLERY */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    grid-template-rows: 230px 230px;
+    gap: 15px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    background: var(--card);
+}
+
+.gallery-item:first-child {
+    grid-row: span 2;
+}
+
+.gallery-item img {
+    height: 100%;
+    transition: transform .7s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-caption {
+    position: absolute;
+    inset: auto 0 0;
+    padding: 45px 18px 17px;
+    background: linear-gradient(transparent, rgba(0,0,0,.8));
+    font-family: var(--serif);
+    font-size: 19px;
+}
+
+/* VALUES */
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+
+.value {
+    border-top: 1px solid var(--gold);
+    padding-top: 25px;
+}
+
+.value-icon {
+    color: var(--gold);
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.value h3 {
+    font-size: 23px;
+    margin-bottom: 12px;
+}
+
+.value p {
+    font-size: 13px;
+}
+
+/* ADMISSIONS */
+
+.admissions {
+    background: var(--bg-light);
+}
+
+.admissions-grid {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 70px;
+    align-items: start;
+}
+
+.admissions-copy p {
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.contact-note {
+    border-left: 2px solid var(--gold);
+    padding: 12px 18px;
+    background: rgba(213,183,121,.06);
+    font-size: 12px;
+}
+
+.admission-form {
+    padding: 35px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+}
+
+.admission-form h3 {
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.admission-form > p {
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    background: var(--bg-light);
+    color: var(--cream);
+    border: 1px solid var(--border);
+    padding: 12px;
+    outline: none;
+    border-radius: 0;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--gold);
+}
+
+.form-group textarea {
+    min-height: 85px;
+    resize: vertical;
+}
+
+.admission-form .btn {
+    width: 100%;
+}
+
+.form-notice {
+    font-size: 11px;
+    margin-top: 12px;
+}
+
+/* FAQ */
+
+.faq-list {
+    max-width: 800px;
+    margin: auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--border);
+}
+
+.faq-question {
+    width: 100%;
+    background: transparent;
+    color: var(--cream);
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: left;
+    padding: 23px 0;
+    cursor: pointer;
+    font-family: var(--serif);
+    font-size: 19px;
+}
+
+.faq-question span {
+    color: var(--gold);
+    font-family: var(--sans);
+    font-size: 23px;
+}
+
+.faq-answer {
+    display: none;
+    padding: 0 35px 23px 0;
+    font-size: 13px;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+    animation: slideUp .3s;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 65px 0 25px;
+    border-top: 1px solid var(--border);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 45px;
+    padding-bottom: 45px;
+}
+
+.footer-about p {
+    margin-top: 20px;
+    max-width: 330px;
+    font-size: 13px;
+}
+
+.footer-col h3 {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.footer-col a {
+    display: block;
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 10px;
+    transition: .3s;
+}
+
+.footer-col a:hover {
+    color: var(--gold);
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* ANIMATIONS */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity .8s, transform .8s;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+    }
+
+    .about-grid,
+    .admissions-grid {
+        gap: 40px;
+    }
+
+    .about-image img {
+        height: 420px;
+    }
+
+    .program-card {
+        padding: 25px 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    section {
+        padding: 75px 0;
+    }
+
+    nav {
+        padding: 13px 0;
+    }
+
+    .brand-name {
+        font-size: 16px;
+    }
+
+    .brand-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 20px 5% 25px;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 12px 0;
+        font-size: 13px;
+    }
+
+    .nav-links .nav-cta {
+        text-align: center;
+        margin-top: 8px;
+        padding: 12px;
+    }
+
+    .hero {
+        min-height: 90svh;
+        padding: 130px 0 100px;
+    }
+
+    .hero-bg {
+        background:
+            linear-gradient(90deg, rgba(16,26,23,.92), rgba(16,26,23,.60)),
+            linear-gradient(0deg, var(--bg), transparent 60%),
+            url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80')
+            center/cover;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 12vw, 72px);
+        letter-spacing: -1px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-bottom {
+        bottom: 20px;
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .about-grid,
+    .admissions-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .about-image img {
+        height: 360px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat:nth-child(2) {
+        border-right: none;
+    }
+
+    .stat:nth-child(-n+2) {
+        border-bottom: 1px solid var(--border);
+    }
+
+    .program-grid,
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .program-card {
+        min-height: 220px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 250px 170px 170px;
+    }
+
+    .gallery-item:first-child {
+        grid-column: span 2;
+        grid-row: auto;
+    }
+
+    .gallery-caption {
+        font-size: 16px;
+    }
+
+    .admission-form {
+        padding: 22px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .footer-about {
+        grid-column: span 2;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .gallery-grid {
+        grid-template-rows: 210px 150px 150px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-about {
+        grid-column: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="loader" id="loader">
+    <div class="loader-inner">
+        <div class="loader-symbol">V.</div>
+        <p>Welcome to Vidya Mandir</p>
+    </div>
+</div>
+
+<nav id="navbar">
+    <div class="container nav-inner">
+
+        <a href="#home" class="brand">
+            <div class="brand-icon">V.</div>
+            <div class="brand-name">
+                Vidya Mandir
+                <small>Dahisar · Mumbai</small>
+            </div>
+        </a>
+
+        <button class="menu-btn" id="menuBtn"
+                aria-label="Toggle navigation"
+                aria-expanded="false">☰</button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">Our Story</a>
+            <a href="#academics">Academics</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#values">Our Values</a>
+            <a href="#contact" class="nav-cta">Admissions ↗</a>
+        </div>
+
+    </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+    <div class="hero-bg"></div>
+
+    <div class="container">
+        <div class="hero-content">
+            <div class="eyebrow">Welcome to Vidya Mandir</div>
+
+            <h1>
+                Learn with<br>
+                purpose.<br>
+                <em>Live with meaning.</em>
+            </h1>
+
+            <p class="hero-description">
+                Education is more than the pursuit of knowledge.
+                It is the journey of discovering your potential,
+                building character and preparing for life.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#about" class="btn">Discover Our School ↗</a>
+                <a href="#academics" class="btn btn-outline">Explore Academics</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-bottom">
+        <span><span class="scroll-line"></span>Scroll to discover</span>
+        <span>Knowledge · Character · Growth</span>
+    </div>
+</section>
+
+<!-- MARQUEE -->
+
+<div class="marquee">
+    <div class="marquee-track">
+        <span>Curiosity <b>✳</b></span>
+        <span>Knowledge <b>✳</b></span>
+        <span>Creativity <b>✳</b></span>
+        <span>Character <b>✳</b></span>
+        <span>Confidence <b>✳</b></span>
+        <span>Possibility <b>✳</b></span>
+        <span>Curiosity <b>✳</b></span>
+        <span>Knowledge <b>✳</b></span>
+        <span>Creativity <b>✳</b></span>
+        <span>Character <b>✳</b></span>
+        <span>Confidence <b>✳</b></span>
+        <span>Possibility <b>✳</b></span>
+    </div>
+</div>
+
+<!-- ABOUT -->
+
+<section id="about">
+    <div class="container about-grid">
+
+        <div class="about-image reveal">
+            <img
+                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=85"
+                alt="Illustrative photograph of a school classroom"
+                loading="lazy">
+
+            <div class="image-label">A place to grow.</div>
+        </div>
+
+        <div class="about-copy reveal">
+            <div class="eyebrow">More than a classroom</div>
+
+            <h2>Every child has a <span class="gold">story</span> to tell.</h2>
+
+            <p>
+                At Vidya Mandir, learning represents an opportunity
+                to discover new ideas, develop confidence and grow
+                into a thoughtful individual.
+            </p>
+
+            <p>
+                We believe education should encourage students to ask
+                questions, explore their interests and approach the
+                world with curiosity and kindness.
+            </p>
+
+            <p>
+                Our vision is to make learning meaningful — helping
+                every student take the next step towards a brighter future.
+            </p>
+
+            <div class="signature">Learn today. Lead tomorrow.</div>
+        </div>
+
+    </div>
+</section>
+
+<!-- STATISTICS -->
+
+<section class="stats">
+    <div class="container stats-grid">
+
+        <div class="stat reveal">
+            <div class="stat-number">01</div>
+            <p>A love for learning</p>
+        </div>
+
+        <div class="stat reveal">
+            <div class="stat-number">02</div>
+            <p>Character and values</p>
+        </div>
+
+        <div class="stat reveal">
+            <div class="stat-number">03</div>
+            <p>Creative thinking</p>
+        </div>
+
+        <div class="stat reveal">
+            <div class="stat-number">∞</div>
+            <p>Possibilities ahead</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ACADEMICS -->
+
+<section id="academics">
+    <div class="container">
+
+        <div class="section-heading reveal">
+            <div class="eyebrow">The learning experience</div>
+            <h2>Knowledge is the <span class="gold">beginning.</span></h2>
+            <p>
+                Every stage of learning opens a new door.
+                We value the skills, curiosity and confidence
+                students develop along the way.
+            </p>
+        </div>
+
+        <div class="program-grid">
+
+            <article class="program-card reveal">
+                <div class="program-number">01 / DISCOVER</div>
+                <h3>Strong Foundations</h3>
+                <p>
+                    Building understanding through the fundamentals
+                    of language, mathematics and the world around us.
+                </p>
+                <div class="program-arrow">↗</div>
+            </article>
+
+            <article class="program-card reveal">
+                <div class="program-number">02 / EXPLORE</div>
+                <h3>Creative Thinking</h3>
+                <p>
+                    Encouraging imagination, questions, problem-solving
+                    and the confidence to explore new possibilities.
+                </p>
+                <div class="program-arrow">↗</div>
+            </article>
+
+            <article class="program-card reveal">
+                <div class="program-number">03 / BECOME</div>
+                <h3>Personal Growth</h3>
+                <p>
+                    Developing responsibility, communication,
+                    cooperation and respect for others.
+                </p>
+                <div class="program-arrow">↗</div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- PHILOSOPHY -->
+
+<section class="philosophy">
+    <div class="container philosophy-inner reveal">
+
+        <div class="eyebrow">What we believe</div>
+
+        <blockquote>
+            "The goal of education is not simply to fill a mind,
+            but to <span>open one.</span>"
+        </blockquote>
+
+        <p>
+            Every question is an opportunity.
+            Every challenge is a lesson.
+            Every student has the potential to grow.
+        </p>
+
+    </div>
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+    <div class="container">
+
+        <div class="section-heading reveal">
+            <div class="eyebrow">Life at school</div>
+            <h2>A world of <span class="gold">possibilities.</span></h2>
+            <p>
+                Learning extends beyond textbooks — into creativity,
+                discovery, friendship and the experiences that
+                help students grow.
+            </p>
+        </div>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80"
+                    alt="Illustrative classroom photograph"
+                    loading="lazy">
+                <div class="gallery-caption">The joy of learning</div>
+            </div>
+
+            <div class="gallery-item reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=700&q=80"
+                    alt="Illustrative educational photograph"
+                    loading="lazy">
+                <div class="gallery-caption">Curiosity in action</div>
+            </div>
+
+            <div class="gallery-item reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=700&q=80"
+                    alt="Illustrative students learning"
+                    loading="lazy">
+                <div class="gallery-caption">Learning together</div>
+            </div>
+
+            <div class="gallery-item reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=700&q=80"
+                    alt="Illustrative school environment"
+                    loading="lazy">
+                <div class="gallery-caption">Room to discover</div>
+            </div>
+
+            <div class="gallery-item reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=700&q=80"
+                    alt="Illustrative learning environment"
+                    loading="lazy">
+                <div class="gallery-caption">A brighter tomorrow</div>
+            </div>
+
+        </div>
+
+        <p style="font-size:11px;margin-top:15px;">
+            Gallery photographs are illustrative and are not verified
+            photographs of Vidya Mandir.
+        </p>
+
+    </div>
+</section>
+
+<!-- VALUES -->
+
+<section id="values" style="background:var(--bg-light);">
+    <div class="container">
+
+        <div class="section-heading reveal">
+            <div class="eyebrow">The foundation of growth</div>
+            <h2>Values that stay <span class="gold">for life.</span></h2>
+        </div>
+
+        <div class="values-grid">
+
+            <div class="value reveal">
+                <div class="value-icon">✳</div>
+                <h3>Integrity</h3>
+                <p>
+                    Choosing honesty, taking responsibility
+                    and doing what is right.
+                </p>
+            </div>
+
+            <div class="value reveal">
+                <div class="value-icon">◇</div>
+                <h3>Respect</h3>
+                <p>
+                    Appreciating different perspectives
+                    and treating everyone with kindness.
+                </p>
+            </div>
+
+            <div class="value reveal">
+                <div class="value-icon">↗</div>
+                <h3>Curiosity</h3>
+                <p>
+                    Asking questions, discovering ideas
+                    and never losing the desire to learn.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ADMISSIONS -->
+
+<section class="admissions" id="contact">
+    <div class="container admissions-grid">
+
+        <div class="admissions-copy reveal">
+            <div class="eyebrow">Take the next step</div>
+
+            <h2>Every great journey begins <span class="gold">somewhere.</span></h2>
+
+            <p>
+                Interested in learning more about Vidya Mandir?
+                Reach out to the school to ask about admissions,
+                classes, facilities and other details.
+            </p>
+
+            <div class="contact-note">
+                <strong style="color:var(--gold);">
+                    Admissions enquiries
+                </strong>
+                <br>
+                Please contact the school directly for verified
+                admission information and application procedures.
+            </div>
+        </div>
+
+        <form class="admission-form reveal" id="admissionForm">
+
+            <h3>Let's connect.</h3>
+            <p>
+                Fill in this demonstration form to see how the
+                admissions enquiry section works.
+            </p>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="parentName">Parent / Guardian Name</label>
+                    <input id="parentName" type="text"
+                           placeholder="Your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentName">Student Name</label>
+                    <input id="studentName" type="text"
+                           placeholder="Student's name" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="classLevel">Class of Interest</label>
+                    <select id="classLevel" required>
+                        <option value="">Select class</option>
+                        <option>Pre-primary</option>
+                        <option>Primary</option>
+                        <option>Middle school</option>
+                        <option>Secondary</option>
+                        <option>Other / Not sure</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input id="email" type="email"
+                           placeholder="you@example.com" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Your Enquiry</label>
+                <textarea id="message"
+                          placeholder="What would you like to know?"></textarea>
+            </div>
+
+            <button type="submit" class="btn">
+                Preview Enquiry ↗
+            </button>
+
+            <p class="form-notice" id="formNotice">
+                Demonstration only. This form does not send or store
+                personal information.
+            </p>
+
+        </form>
+    </div>
+</section>
+
+<!-- FAQ -->
+
+<section id="faq">
+    <div class="container">
+
+        <div class="section-heading reveal" style="margin:auto auto 35px;text-align:center;">
+            <div class="eyebrow">Questions and answers</div>
+            <h2>Good to <span class="gold">know.</span></h2>
+            <p>Some useful information for families exploring the school.</p>
+        </div>
+
+        <div class="faq-list">
+
+            <div class="faq-item reveal">
+                <button class="faq-question" aria-expanded="false">
+                    How can I enquire about admissions?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    Contact Vidya Mandir directly to confirm the current
+                    admission process, eligibility and available places.
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-question" aria-expanded="false">
+                    Where is Vidya Mandir located?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    This website is designed for Vidya Mandir in Dahisar,
+                    Mumbai. Please verify the official address and
+                    directions before visiting.
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-question" aria-expanded="false">
+                    How can I confirm school timings?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    School timings may vary by class and academic year.
+                    Please contact the school for the latest schedule.
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-question" aria-expanded="false">
+                    Are the photographs real school photographs?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    No. The photographs on this demonstration website
+                    are illustrative stock images. They should be
+                    replaced with authorised school photographs.
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-about">
+                <a href="#home" class="brand">
+                    <div class="brand-icon">V.</div>
+                    <div class="brand-name">
+                        Vidya Mandir
+                        <small>Dahisar · Mumbai</small>
+                    </div>
+                </a>
+
+                <p>
+                    A school website concept inspired by the belief
+                    that meaningful education nurtures knowledge,
+                    character and a lifelong love of learning.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <a href="#about">Our Story</a>
+                <a href="#academics">Academics</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#values">Our Values</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Discover</h3>
+                <a href="#contact">Admissions Enquiry</a>
+                <a href="#faq">Frequently Asked Questions</a>
+                <a href="#home">Back to Top ↑</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© <span id="year"></span> Vidya Mandir Website Concept</span>
+            <span>Designed with care. Built for learning.</span>
+        </div>
+
+    </div>
+</footer>
+
+<script>
+/* PAGE LOADER */
+
+window.addEventListener("load", function () {
+    setTimeout(function () {
+        document.getElementById("loader").classList.add("hidden");
+    }, 500);
+});
+
+/* NAVIGATION */
+
+const navbar = document.getElementById("navbar");
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+window.addEventListener("scroll", function () {
+    navbar.classList.toggle("scrolled", window.scrollY > 30);
+});
+
+menuBtn.addEventListener("click", function () {
+    const isOpen = navLinks.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", isOpen);
+    menuBtn.textContent = isOpen ? "✕" : "☰";
+});
+
+document.querySelectorAll(".nav-links a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "☰";
+    });
+});
+
+/* SCROLL REVEAL */
+
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12
+    });
+
+    revealElements.forEach(function (element) {
+        observer.observe(element);
+    });
+} else {
+    revealElements.forEach(function (element) {
+        element.classList.add("visible");
+    });
+}
+
+/* FAQ ACCORDION */
+
+document.querySelectorAll(".faq-question").forEach(function (button) {
+    button.addEventListener("click", function () {
+        const item = button.closest(".faq-item");
+        const wasOpen = item.classList.contains("active");
+
+        document.querySelectorAll(".faq-item").forEach(function (other) {
+            other.classList.remove("active");
+            other.querySelector(".faq-question")
+                .setAttribute("aria-expanded", "false");
+            other.querySelector(".faq-question span").textContent = "+";
+        });
+
+        if (!wasOpen) {
+            item.classList.add("active");
+            button.setAttribute("aria-expanded", "true");
+            button.querySelector("span").textContent = "−";
+        }
+    });
+});
+
+/* DEMONSTRATION FORM */
+
+document.getElementById("admissionForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    document.getElementById("formNotice").textContent =
+        "Demo successful! This website does not send your enquiry. Please contact the school directly.";
+
+    document.getElementById("formNotice").style.color = "#d5b779";
+});
+
+/* FOOTER YEAR */
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
